@@ -16,11 +16,9 @@ Os dados referentes aos alunos devem conter sua filiação, sua data de nascimen
 
 ## Modelagem
 
-Modelo conceitual: --linkar imagem--
+[Modelos conceitual e lógico](https://github.com/peuvitor/modelagem-banco-de-dados-e-docker/tree/main/modelagem-banco-de-dados)
 
-Modelo lógico: --linkar imagem--
-
-Modelo físico: gerado a partir do MySQL Workbench --linkar arquivo--
+[Modelo físico](https://github.com/peuvitor/modelagem-banco-de-dados-e-docker/blob/main/scripts_sql/DDL_FACULDADE.sql): gerado a partir do MySQL Workbench.
 
 
 ## Gerador de massa
