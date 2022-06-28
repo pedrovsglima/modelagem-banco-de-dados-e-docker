@@ -1,0 +1,36 @@
+<h1 id="modelagem-de-banco-de-dados-e-execu-o-em-docker">Modelagem de banco de dados e execução em docker</h1>
+<p>Atividade proposta durante a participação na trilha de Engenharia de Dados do Programa de Formação em Dados Encantech, realizado durante os meses de Março, Abril e Maio de 2022, em uma parceria entre as Lojas Renner S.A. e a CESAR School. </p>
+<p>Consiste na modelagem de um banco de dados, da criação de um gerador de massa e da execução em um docker.</p>
+<p><a href="https://github.com/peuvitor/modelagem-banco-de-dados-e-docker">acesso aos arquivos</a></p>
+<p><strong>Autor:</strong> Pedro Vitor Soares Gomes de Lima</p>
+<h2 id="mini-mundo">Mini mundo</h2>
+<p>Uma faculdade contratou você como engenheiro de dados e pediu seu apoio para a construção de um modelo de banco de dados para gerenciar seus funcionários, divididos entre administrativos e professores, permitindo também alocar um professor por matéria por semestre, permitindo assim a rotação entre os professores durante os semestres.</p>
+<p>O sistema também deve registrar os dados de matrícula dos alunos, o ano letivo e suas matérias que serão cursadas por semestre, vinculando aos professores que irão ministrar aulas nesse período.</p>
+<p>Os dados referentes aos alunos devem conter sua filiação, sua data de nascimento, endereço completo, telefone para contato, e-mail e seu histórico de notas por matérias.</p>
+<h2 id="modelagem">Modelagem</h2>
+<p><a href="https://github.com/peuvitor/modelagem-banco-de-dados-e-docker/tree/main/modelagem-banco-de-dados">Modelos conceitual e lógico</a></p>
+<p><a href="https://github.com/peuvitor/modelagem-banco-de-dados-e-docker/blob/main/scripts_sql/DDL_FACULDADE.sql">Modelo físico</a>: gerado a partir do MySQL Workbench.</p>
+<h2 id="gerador-de-massa">Gerador de massa</h2>
+<p>Arquivos de suporte: lista de nomes, lista de sobrenomes e lista de CEPs válidos.</p>
+<p>Gerado script que popula a base de dados na seguinte ordem:</p>
+<ol>
+<li><p>tabelas de domínio (exemplos: CIDADE, DEPARTAMENTO);</p>
+</li>
+<li><p>tabelas que dependem apenas das tabelas de domínio (exemplo: PESSOA);</p>
+</li>
+<li><p>tabelas de especializações (exemplos: ALUNO, PROFESSOR);</p>
+</li>
+<li><p>tabelas de relacionamentos (exemplo: AULA).</p>
+</li>
+</ol>
+<h2 id="docker">Docker</h2>
+<p>Criação de um docker a partir de uma imagem do SGBD MariaDB.</p>
+<h3 id="rodar-os-scripts-sql-no-docker-criado">Rodar os scripts SQL no docker criado</h3>
+<ol>
+<li><p>criar docker a partir do arquivo &#39;docker-compose.yml&#39;</p>
+<p> docker-compose -f ./docker-compose.yml up -d</p>
+</li>
+<li><p>executar docker</p>
+<p> docker exec -i \<NOME-DO-DOCKER\> mysql -u root -p\<SENHA\> &lt; \<NOME-DO-ARQUIVO\>.sql</p>
+</li>
+</ol>
